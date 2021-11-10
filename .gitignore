@@ -1,3 +1,5 @@
-Assets
-node_modules
+Assets/
+node_modules/
+Note_Tacker/
 package-lock.json
+.vscode
