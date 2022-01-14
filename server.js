@@ -1,10 +1,10 @@
 const express = require('express');
-// Routes 
-require('./routes/apiRoutes')(app);
-require('./routes/htmlRoutes')(app);
-
 // set up express App
 const app = express();
+// Routes 
+const apiRouter = require('./routes/apiRoutes');
+const htmlRouter = require('./routes/htmlRoutes');
+
 // Sets an dafault port.
 const PORT = process.env.PORT || 3000;
 
@@ -14,8 +14,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // points to "route" files
-app.use("/api",apiRoute);
-app.use("/",htmlRoute);
+app.use("/api",apiRouter);
+app.use("/",htmlRouter);
 
 // App listener to start server
 app.listen(PORT, () => {
